@@ -5,6 +5,14 @@ class CategoriesController < ApplicationController
   end
 
   def create
+    @category = Category.new(category_params)
+    if @category.save
+      flash[:notice] = "category created"
+      redirect_to categories_path
+    else
+      flash[:alert] = "please insert any text to save"
+      render 'new'
+    end
   end
 
   def update
@@ -20,5 +28,10 @@ class CategoriesController < ApplicationController
   end
 
   def show
+  end
+  
+  private
+  def category_params
+    params.require(:category).permit(:name)
   end
 end
