@@ -9,3 +9,11 @@
 		</ul>
 	</div>
 <% end %>
+
+<% if params[:controller] == "books" && params[:action] == "index" || params[:action] == "show" %>
+	<div class="list-group">
+	  <a href="#" class="list-group-item">ruby</a>
+	  <a href="#" class="list-group-item">php</a>
+	  <a href="#" class="list-group-item">html</a>
+	</div>
+<% end %>

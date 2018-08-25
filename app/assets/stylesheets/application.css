@@ -18,13 +18,45 @@ body
 	padding-top: 50px;
 	font-family: 'Arial',sans-serif;
 	font-size: 14px;
-	color: #888;
+	color: #aaa;
 	line-height: 1.5em;
 }
+
 header
 {
-	background:#555;
+	background:#666;
 	bottom:#fff;
 	height: 80px;
 	margin-bottom: 20px;
+	padding-top: 20px;
+}
+
+footer
+{
+	background:#666;
+	bottom:#fff;
+	height: 80px;
+	margin-top: 20px;
+	text-align: center;
+	padding-top: 30px;
+}
+
+#books-index {
+	text-align: center;
+}
+
+#books-index img{
+	width:100%;
+	padding:3px;
+	border:1px #ccc solid;
+}
+
+#books-index h3{
+	text-align: center;
+	height:50px;
+}
+
+#books-index .btn{
+	display:block;
+	margin-top:20px;
 }
