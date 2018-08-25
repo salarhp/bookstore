@@ -1,2 +1,24 @@
-<h1>Books#new</h1>
-<p>Find me in app/views/books/new.html.erb</p>
+<h2>add new book</h2>
+<%= form_for @book do |f| %>
+	<div class = "from-group">
+		<%= f.label :title %><br/>
+		<%= f.text_field :title ,class: 'form-control'%><br/>
+	</div>
+	<div class = "from-group">
+		<%= f.label :isbn %><br/>
+		<%= f.text_field :isbn ,class: 'form-control'%><br/>
+	</div>
+	<div class = "from-group">
+		<%= f.label :category %><br/>
+		<%= f.text_field :category_id,Category.all.collect {|x| [x.name, x.id]}, {:include_blank => 'select one'} ,class: 'form-control'%><br/>
+	</div>
+	<div class = "from-group">
+		<%= f.label :author %><br/>
+		<%= f.text_field :author_id,Author.all.collect {|x| [x.name, x.id]}, {:include_blank => 'select one'} ,class: 'form-control'%><br/>
+	</div>
+	<div class = "from-group">
+		<%= f.label :publisher %><br/>
+		<%= f.text_field :publisher_id,Publisher.all.collect {|x| [x.name, x.id]}, {:include_blank => 'select one'} ,class: 'form-control'%><br/>
+	</div>
+
+<% end %>

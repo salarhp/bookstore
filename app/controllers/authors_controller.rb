@@ -1,5 +1,10 @@
 class AuthorsController < ApplicationController
   def new
+    @page_title = "add new Author"
+    @author = Author.new
+    @category = Author.new
+    @author = Author.new
+    @publisher = Author.new
   end
 
   def create
