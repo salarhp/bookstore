@@ -2,42 +2,47 @@
 <html>
   <head>
     <title><%= @page_title ? @page_title : 'welcome' %> | Bookstore</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="#">Bookstore</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <div class="navbar navbar-expand-md navbar-dark bg-dark fixed-top"> 
+      <nav>   
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+          <ul class="navbar-nav mr-auto">
+            <li class="<%= params[:container] == 'books' ? 'active' : '' %>"><%=link_to 'Home' , root_path ,class: "nav-link" %></li>
+            <li><%=link_to 'About' , about_path ,class: "nav-link" %></li>
+            <li><%=link_to 'New Book' , new_book_path ,class: "nav-link" %></li>
+            <li><%=link_to 'New authors' , new_author_path ,class: "nav-link" %></li>
+            <li><%=link_to 'New categories' , new_category_path ,class: "nav-link" %></li>
+            <li><%=link_to 'New publishers' , new_publisher_path ,class: "nav-link" %></li>
+            <li><%=link_to 'Manage authors' , authors_path ,class: "nav-link" %></li>
+            <li><%=link_to 'Manage categories' , categories_path ,class: "nav-link" %></li>
+            <li><%=link_to 'Manage publishers' , publishers_path ,class: "nav-link" %></li>
+            
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" 
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <button class="dropdown-item" type="button">Action</button>
+                <button class="dropdown-item" type="button">Another action</button>
+                <button class="dropdown-item" type="button">Something else here</button>
+              </div>
+            </div>
+          </ul>
 
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-          <li class="<%= params[:container] == 'books' ? 'active' : '' %>"><%=link_to 'Home' , root_path ,class: "nav-link" %></li>
-          <li><%=link_to 'About' , about_path ,class: "nav-link" %></li>
-          <li><%=link_to 'New Book' , new_book_path ,class: "nav-link" %></li>
-          <li><%=link_to 'New authors' , new_author_path ,class: "nav-link" %></li>
-          <li><%=link_to 'New categories' , new_category_path ,class: "nav-link" %></li>
-          <li><%=link_to 'New publishers' , new_publisher_path ,class: "nav-link" %></li>
-          <li><%=link_to 'Manage authors' , authors_path ,class: "nav-link" %></li>
-          <li><%=link_to 'Manage categories' , categories_path ,class: "nav-link" %></li>
-          <li><%=link_to 'Manage publishers' , publishers_path ,class: "nav-link" %></li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-      </div>
-    </nav>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+    </div>
     <header>
       <div class="container">
         <h1>The bookstore<small><%= @page_title ? @page_title : ' welcome' %></small></h1>
