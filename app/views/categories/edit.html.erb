@@ -1,2 +1,11 @@
-<h1>Categories#edit</h1>
-<p>Find me in app/views/categories/edit.html.erb</p>
+<h2>edit category</h2>
+<%= form_for @category do |f| %>
+	<div class = "from-group">
+		<%= f.label :name %><br/>
+		<%= f.text_field :name ,class: 'form-control'%><br/>
+	</div>
+	
+	<%= f.submit "submit", class:'btn btn-primary' %>
+	<%= link_to "cancel", categories_path, class:'btn btn-default' %>
+
+<% end %>

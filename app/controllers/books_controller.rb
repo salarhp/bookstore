@@ -19,12 +19,24 @@ class BooksController < ApplicationController
   end
 
   def update
+    @book = Book.find(params[:id])
+    if @book.update(book_params)
+       flash[:notice] = "item update"
+      redirect_to books_path
+    else
+      flash[:alert] = "please insert any text to save"
+    end
   end
 
   def edit
+    @book = Book.find(params[:id])
   end
 
-  def distroy
+  def destroy
+    @book = Book.find(params[:id])
+    @book.destroy
+    flash[:notice] = "item deleted"
+    redirect_to books_path
   end
 
   def index

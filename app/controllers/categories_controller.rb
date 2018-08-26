@@ -16,12 +16,24 @@ class CategoriesController < ApplicationController
   end
 
   def update
+    @category = Category.find(params[:id])
+    if @category.update(category_params)
+       flash[:notice] = "item update"
+      redirect_to categories_path
+    else
+      flash[:alert] = "please insert any text to save"
+    end
   end
 
   def edit
+    @category = Category.find(params[:id])
   end
 
-  def distroy
+  def destroy
+    @category = Category.find(params[:id])
+    @category.destroy
+    flash[:notice] = "item deleted"
+    redirect_to categories_path
   end
 
   def index
